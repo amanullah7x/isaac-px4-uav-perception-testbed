@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# @name Holybro X500 in Isaac Sim (Pegasus, simulator_mavlink)
+#
+# @type Quadrotor x
+#
+# Geometry from 4001_gz_x500; motor outputs and sensors as 10015_gazebo-classic_iris (HIL over TCP 4560).
+
+. ${R}etc/init.d/rc.mc_defaults
+
+param set-default CA_AIRFRAME 0
+param set-default CA_ROTOR_COUNT 4
+param set-default CA_ROTOR0_PX 0.174
+param set-default CA_ROTOR0_PY 0.174
+param set-default CA_ROTOR0_KM 0.05
+param set-default CA_ROTOR1_PX -0.174
+param set-default CA_ROTOR1_PY -0.174
+param set-default CA_ROTOR1_KM 0.05
+param set-default CA_ROTOR2_PX 0.174
+param set-default CA_ROTOR2_PY -0.174
+param set-default CA_ROTOR2_KM -0.05
+param set-default CA_ROTOR3_PX -0.174
+param set-default CA_ROTOR3_PY 0.174
+param set-default CA_ROTOR3_KM -0.05
+
+param set-default PWM_MAIN_FUNC1 101
+param set-default PWM_MAIN_FUNC2 102
+param set-default PWM_MAIN_FUNC3 103
+param set-default PWM_MAIN_FUNC4 104
+
+# 2.06 kg, thrust/weight ~2 in Pegasus -> hover near 70 % rotor speed
+param set-default MPC_THR_HOVER 0.65
+
+# Simulated battery: no drain (long sessions in a slower-than-real-time sim would otherwise trip battery failsafes)
+param set-default SIM_BAT_MIN_PCT 100

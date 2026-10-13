@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# @name 5-inch FPV quad in Isaac Sim (Pegasus, simulator_mavlink)
+#
+# @type Quadrotor x
+#
+# 0.62 kg, 220 mm motor-to-motor, thrust/weight ~4.5. Rate gains scaled down from the Iris defaults because the
+# small frame has ~6x more angular authority (low inertia).
+
+. ${R}etc/init.d/rc.mc_defaults
+
+param set-default CA_AIRFRAME 0
+param set-default CA_ROTOR_COUNT 4
+param set-default CA_ROTOR0_PX 0.078
+param set-default CA_ROTOR0_PY 0.078
+param set-default CA_ROTOR0_KM 0.05
+param set-default CA_ROTOR1_PX -0.078
+param set-default CA_ROTOR1_PY -0.078
+param set-default CA_ROTOR1_KM 0.05
+param set-default CA_ROTOR2_PX 0.078
+param set-default CA_ROTOR2_PY -0.078
+param set-default CA_ROTOR2_KM -0.05
+param set-default CA_ROTOR3_PX -0.078
+param set-default CA_ROTOR3_PY 0.078
+param set-default CA_ROTOR3_KM -0.05
+
+param set-default PWM_MAIN_FUNC1 101
+param set-default PWM_MAIN_FUNC2 102
+param set-default PWM_MAIN_FUNC3 103
+param set-default PWM_MAIN_FUNC4 104
+
+param set-default MC_ROLLRATE_P 0.03
+param set-default MC_ROLLRATE_I 0.04
+param set-default MC_ROLLRATE_D 0.0006
+param set-default MC_PITCHRATE_P 0.03
+param set-default MC_PITCHRATE_I 0.04
+param set-default MC_PITCHRATE_D 0.0006
+param set-default MC_YAWRATE_P 0.04
+param set-default MC_YAWRATE_I 0.02
+param set-default MC_ROLLRATE_MAX 360
+param set-default MC_PITCHRATE_MAX 360
+param set-default MC_YAWRATE_MAX 300
+param set-default MPC_THR_HOVER 0.3
+param set-default MPC_XY_VEL_MAX 15
+param set-default MPC_Z_VEL_MAX_UP 6
+
+# Simulated battery: no drain (long sessions in a slower-than-real-time sim would otherwise trip battery failsafes)
+param set-default SIM_BAT_MIN_PCT 100

@@ -1,0 +1,10 @@
+venv/
+tools/.venv/
+__pycache__/
+*.pyc
+logs/
+recording.webm
+assets/QGroundControl.AppImage
+assets/src/
+assets/baylands/
+docs/figures/
